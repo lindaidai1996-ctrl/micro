@@ -1,0 +1,15 @@
+{
+  "name": "micro-frontend-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "dev:main": "pnpm --filter main-app dev",
+    "dev:react": "pnpm --filter sub-react dev",
+    "dev:vue": "pnpm --filter sub-vue dev"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
