@@ -12,4 +12,14 @@ export default defineConfig({
     cors: true,
     origin: 'http://localhost:8082',
   },
+  build: {
+    rollupOptions: {
+      external: ['lodash'],
+      output: {
+        globals: {
+          lodash: '_',
+        },
+      },
+    },
+  },
 })

@@ -6,6 +6,7 @@
       <li>当前时间: <strong>{{ time }}</strong> (来自 @micro/shared formatDate)</li>
       <li>window.reactFlag: <strong>{{ reactFlagValue }}</strong> (验证 JS 沙箱隔离)</li>
       <li>运行环境: <strong>{{ env }}</strong></li>
+      <li>lodash capitalize('world'): <strong>{{ capitalizedWorld }}</strong> (第三方库共享)</li>
     </ul>
   </div>
 </template>
@@ -13,11 +14,13 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { formatDate } from '@micro/shared'
+import { capitalize } from 'lodash'
 
 const theme = ref('light')
 const time = ref(formatDate())
 const reactFlagValue = ref(String((window as any).reactFlag))
 const env = ref((window as any).__POWERED_BY_QIANKUN__ ? '微前端模式' : '独立运行')
+const capitalizedWorld = capitalize('world')
 
 let timer: ReturnType<typeof setInterval>
 

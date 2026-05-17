@@ -5,3 +5,8 @@ interface Window {
   __INJECTED_PUBLIC_PATH_BY_QIANKUN__?: string
   reactFlag?: boolean
 }
+
+declare module 'lodash' {
+  export function capitalize(str: string): string
+  export function upperFirst(str: string): string
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatDate } from '@micro/shared'
+import { capitalize } from 'lodash'
 import './style.css'
 
 interface QiankunProps {
@@ -43,6 +44,7 @@ export default function App({ qiankunProps }: AppProps) {
         <li>当前时间: <strong>{time}</strong> (来自 @micro/shared formatDate)</li>
         <li>window.reactFlag: <strong>{String(window.reactFlag)}</strong></li>
         <li>运行环境: <strong>{window.__POWERED_BY_QIANKUN__ ? '微前端模式' : '独立运行'}</strong></li>
+        <li>lodash capitalize('hello'): <strong>{capitalize('hello')}</strong> (第三方库共享)</li>
       </ul>
     </div>
   )

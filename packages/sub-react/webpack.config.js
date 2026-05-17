@@ -14,6 +14,14 @@ module.exports = {
     chunkLoadingGlobal: `webpackJsonp_${name}`,
     globalObject: 'window',
   },
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: '_',
+    },
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
