@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { formatDate } from '@micro/shared'
+import './style.css'
 
 interface QiankunProps {
   container?: HTMLElement
@@ -36,7 +37,7 @@ export default function App({ qiankunProps }: AppProps) {
 
   return (
     <div className="sub-react" style={{ background: theme === 'dark' ? '#2d2d2d' : '#fff', color: theme === 'dark' ? '#eee' : '#333', padding: '24px' }}>
-      <h2 className="title" style={{ color: '#61dafb' }}>React 子应用</h2>
+      <h2 className="title">React 子应用</h2>
       <ul className="info-list">
         <li>当前主题: <strong>{theme}</strong> (来自全局状态通信)</li>
         <li>当前时间: <strong>{time}</strong> (来自 @micro/shared formatDate)</li>

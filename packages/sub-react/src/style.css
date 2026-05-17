@@ -1,0 +1,17 @@
+.title {
+  font-size: 24px;
+  color: #61dafb;
+  border-bottom: 3px solid #61dafb;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 16px 0;
+}
+
+.info-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #ccc;
+}

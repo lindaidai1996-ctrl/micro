@@ -1,6 +1,6 @@
 <template>
   <div class="sub-vue" :style="{ background: theme === 'dark' ? '#2d2d2d' : '#fff', color: theme === 'dark' ? '#eee' : '#333', padding: '24px' }">
-    <h2 class="title" style="color: #42b883">Vue 子应用</h2>
+    <h2 class="title">Vue 子应用</h2>
     <ul class="info-list">
       <li>当前主题: <strong>{{ theme }}</strong> (来自全局状态通信)</li>
       <li>当前时间: <strong>{{ time }}</strong> (来自 @micro/shared formatDate)</li>
@@ -34,3 +34,23 @@ onUnmounted(() => {
 
 defineExpose({ theme })
 </script>
+
+<style>
+.title {
+  font-size: 24px;
+  color: #42b883;
+  border-bottom: 3px solid #42b883;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 16px 0;
+}
+
+.info-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #666;
+}
+</style>
