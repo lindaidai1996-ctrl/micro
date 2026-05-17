@@ -27,6 +27,9 @@ class EventBus {
   }
 }
 
-const eventBus = new EventBus()
+const GLOBAL_KEY = '__MICRO_EVENT_BUS__'
+
+const eventBus: EventBus =
+  (window as any)[GLOBAL_KEY] || ((window as any)[GLOBAL_KEY] = new EventBus())
 
 export { eventBus, EventBus }
