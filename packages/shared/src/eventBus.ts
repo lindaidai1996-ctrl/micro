@@ -29,7 +29,15 @@ class EventBus {
 
 const GLOBAL_KEY = '__MICRO_EVENT_BUS__'
 
-const eventBus: EventBus =
-  (window as any)[GLOBAL_KEY] || ((window as any)[GLOBAL_KEY] = new EventBus())
+function getEventBus(): EventBus {
+  // 绕过 qiankun proxy sandbox，直接访问真实 window
+  const rawWindow = (Function('return window')() as any)
+  if (!rawWindow[GLOBAL_KEY]) {
+    rawWindow[GLOBAL_KEY] = new EventBus()
+  }
+  return rawWindow[GLOBAL_KEY]
+}
+
+const eventBus: EventBus = getEventBus()
 
 export { eventBus, EventBus }
