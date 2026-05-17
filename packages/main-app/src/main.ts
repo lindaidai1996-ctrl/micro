@@ -13,6 +13,6 @@ registerMicroApps(apps, {
 
 start({
   sandbox: {
-    strictStyleIsolation: true,
+    experimentalStyleIsolation: true,
   },
 })
