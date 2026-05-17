@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import { formatDate } from '@micro/shared'
-import type { QiankunProps } from '@micro/shared'
+
+interface QiankunProps {
+  container?: HTMLElement
+  onGlobalStateChange?: (
+    callback: (state: Record<string, any>, prev: Record<string, any>) => void
+  ) => void
+  setGlobalState?: (state: Record<string, any>) => void
+}
 
 interface AppProps {
   qiankunProps?: QiankunProps
@@ -17,7 +24,7 @@ export default function App({ qiankunProps }: AppProps) {
 
   useEffect(() => {
     if (qiankunProps?.onGlobalStateChange) {
-      qiankunProps.onGlobalStateChange((state) => {
+      qiankunProps.onGlobalStateChange((state, _prev) => {
         setTheme(state.theme)
       })
     }

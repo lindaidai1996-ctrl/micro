@@ -25,12 +25,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { GlobalState } from '@micro/shared'
+import actions from './micro/state'
 
 const theme = ref<GlobalState['theme']>('light')
 const currentPath = ref(window.location.pathname)
 
 function toggleTheme() {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
+  actions.setGlobalState({ theme: theme.value })
 }
 
 function navigateTo(path: string) {

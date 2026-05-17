@@ -2,11 +2,18 @@ import './public-path'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import type { QiankunProps } from '@micro/shared'
 
 let root: ReactDOM.Root | null = null
 
-function render(props: QiankunProps = {}) {
+interface MountProps {
+  container?: HTMLElement
+  onGlobalStateChange?: (
+    callback: (state: Record<string, any>, prev: Record<string, any>) => void
+  ) => void
+  setGlobalState?: (state: Record<string, any>) => void
+}
+
+function render(props: MountProps = {}) {
   const container = props.container
     ? props.container.querySelector('#root')
     : document.getElementById('root')
@@ -23,7 +30,7 @@ export async function bootstrap() {
   console.log('[sub-react] bootstrap')
 }
 
-export async function mount(props: QiankunProps) {
+export async function mount(props: MountProps) {
   console.log('[sub-react] mount', props)
   render(props)
 }
