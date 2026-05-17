@@ -15,11 +15,6 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ['lodash'],
-      output: {
-        globals: {
-          lodash: '_',
-        },
-      },
     },
   },
 })
